@@ -1,0 +1,366 @@
+﻿@{
+    ViewData["Title"] = "Pesquisa";
+}
+
+<div class="box">
+    <p>Consulta Cliente</p>
+    <div class="container text-left">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="mb-3 row">
+                    <label for="cpf" class="col-sm-2 col-form-label">CPF:</label>
+                    <div class="col-sm-10">                    
+                      <input type="text" class="form-control form-control-sm" id="cpf" placeholder="378.846.758-55">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3 row">
+                    <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control form-control-sm" id="nome" >
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3 row">
+                    <label for="datanascimento" class="col-sm-6 col-form-label">Data Nascimento:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control-sm" id="datanascimento">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+               <div class="mb-3 row">
+                    <label for="sexo" class="col-sm-2 col-form-label">Sexo:</label>
+                    <div class="col-sm-10">
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sexo" id="sexo" value="M">
+                          <label class="form-check-label" for="inlineRadio1">Masculino</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sexo" id="sexo" value="P">
+                          <label class="form-check-label" for="inlineRadio2">Femenino</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="container text-left">
+        <div class="row align-items-start">
+            <div class="col-4">
+                <div class="mb-3 row">
+                    <label for="endereco" class="col-sm-2 col-form-label">Endereço:</label>
+                    <div class="col-sm-10">                  
+                        <input type="text" class="form-control form-control-sm" id="endereco" >
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3 row">
+                    <label for="estado" class="col-sm-2 col-form-label">Estado:</label>
+                    <div class="col-sm-10 selDiv">
+                        <select class="form-select" aria-label="Selecionee" id="estado">
+                          <option value="">Selecione</option>
+                          <option value="São Paulo">São Paulo</option>
+                          <option value="Rio de Janeiro">Rio de Janeiro</option>
+                          <option value="Minas Gerais">Minas Gerais</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-4 row">
+                    <label for="cidade" class="col-sm-6 col-form-label">Cidade:</label>
+                    <div class="col-sm-6 selDiv1">
+                        <select class="form-select" aria-label="Selecione" id="cidade">
+                         <option value="">Selecione</option>
+                          <option value="São Paulo">São Paulo</option>
+                          <option value="Rio de Janeiro">Rio de Janeiro</option>
+                          <option value="Belo Horizonte">Belo Horizonte</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+             <div class="col">
+            </div>
+        </div> 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">                       
+            </div> 
+            <div class="col align-self-end">
+                <button type="button" class="btn btn-primary" id="pesquisa">Pesquisa</button>  
+                <button type="button" class="btn btn-secondary" id="limpar">Limpar</button>
+            </div>       
+        </div>
+    </div>
+</div>
+<div class="box">
+    <p>Pequisa Cliente</p>
+    <table width="90%" id="tablePesquisa" border="1">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Cliente</th>
+                <th>CPF</th>
+                <th>Data Nasc.</th>
+                <th>Estado</th>
+                <th>Cidade</th>
+                <th>Sexo</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      
+    </table>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+   
+          <div class="container text-left">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="mb-3 row">
+                    <label for="cpf" class="col-sm-2 col-form-label">CPF:</label>
+                    <div class="col-sm-10">                    
+                      <input type="text" class="form-control form-control-sm" id="cpfEdit" placeholder="378.846.758-55">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3 row">
+                    <label for="nome" class="col-sm-2 col-form-label">Nome:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control form-control-sm" id="nomeEdit" >
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3 row">
+                    <label for="datanascimento" class="col-sm-6 col-form-label">Data Nascimento:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control-sm" id="datanascimentoEdit">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+               <div class="mb-3 row">
+                    <label for="sexo" class="col-sm-2 col-form-label">Sexo:</label>
+                    <div class="col-sm-10">
+                      <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sexoEdit" id="sexoEdit" value="M">
+                          <label class="form-check-label" for="inlineRadio1">Masculino</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="sexoEdit" id="sexoEdit" value="P">
+                          <label class="form-check-label" for="inlineRadio2">Femenino</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     </div>
+     <div class="container text-left">
+        <div class="row align-items-start">
+            <div class="col-4">
+                <div class="mb-3 row">
+                    <label for="endereco" class="col-sm-2 col-form-label">Endereço:</label>
+                    <div class="col-sm-10">                  
+                        <input type="text" class="form-control form-control-sm" id="enderecoEdit" >
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3 row">
+                    <label for="estado" class="col-sm-2 col-form-label">Estado:</label>
+                    <div class="col-sm-10 selDivEdit">
+                        <select class="form-select" aria-label="Selecionee" id="estadoEdit">
+                          <option value="">Selecione</option>
+                          <option value="São Paulo">São Paulo</option>
+                          <option value="Rio de Janeiro">Rio de Janeiro</option>
+                          <option value="Minas Gerais">Minas Gerais</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-4 row">
+                    <label for="cidade" class="col-sm-6 col-form-label">Cidade:</label>
+                    <div class="col-sm-6 selDiv1Edit">
+                        <select class="form-select" aria-label="Selecione" id="cidadeEdit">
+                         <option value="">Selecione</option>
+                          <option value="São Paulo">São Paulo</option>
+                          <option value="Rio de Janeiro">Rio de Janeiro</option>
+                          <option value="Belo Horizonte">Belo Horizonte</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+             <div class="col">
+            </div>
+        </div> 
+ 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="alterar">Alterar</button> 
+      </div>
+    </div>
+  </div>
+</div>
+<input type="hidden" id="hdID" />
+<script>
+$(document).ready(function(){
+
+    $("#pesquisa").click(function(){
+
+         $("#tablePesquisa tbody tr").remove();
+      
+        $.ajax({
+         method: "Get",
+         url: "/Cadastro/get",
+         data: { 
+            cpf: $("#cpf").val(),
+            nome: $("#nome").val(), 
+            datanascimento: $("#datanascimento").val(),
+            sexo : $('input[name=sexo]:checked').val(),
+            endereco : $("#endereco").val(),
+            estado: $("div.selDiv select").val() == ''? null : $("div.selDiv select").val(),
+            cidade: $("div.selDiv1 select").val() == ''? null : $("div.selDiv1 select").val(), },
+         success: function(data) {
+            
+               var objresult = "";
+
+               $.each(data, function(key, val) { 
+                    objresult += "<tr><td><button type='button' class='btn btn-success editar' data-bs-toggle='modal' data-bs-target='#exampleModal' idd='"+ val.id +"' >Editar</button></td><td><button type='button' class='btn btn-danger excluir' idd='"+ val.id +"'>Excluir</button></td><td>"+ val.nome +"</td><td>"+ val.cpf +"</td><td>"+ val.datanascimento +"</td><td>"+ val.estado +"</td><td>"+ val.cidade +"</td><td>"+ val.sexo +"</td></tr>";
+                });
+
+                $("#tablePesquisa tbody").append(objresult);
+
+                 $(".excluir").click(function(){
+                     var id = $(this).attr('idd');
+                     var linha = $($($(this).parent()).parent());
+                     $.ajax({
+                     method: "Delete",
+                     url: "/Cadastro/Delete",
+                     data: { id },
+                     success: function(data) {
+                        $(linha).remove();
+                           
+                        }
+                    });
+                });
+                
+                $(".editar").click(function(){
+                     $.ajax({
+                     method: "Get",
+                     url: "/Cadastro/GetbyId/" + $(this).attr('idd'),
+                     success: function(data) {
+
+                        $("#cpfEdit").val(data.cpf);
+                        $("#nomeEdit").val(data.nome);
+                        $("#datanascimentoEdit").val(data.datanascimento);
+                        $("#enderecoEdit").val(data.endereco);
+                        $("div.selDivEdit select").val(data.estado);
+                        $("div.selDiv1Edit select").val(data.cidade);
+                        $("#hdID").val(data.id);
+                           
+                        }
+                    });
+                });          
+            }
+        });
+
+    });
+
+    $("#limpar").click(function(){
+         limpar()
+    });
+
+    function limpar(){
+        $("#cpf").val("");
+         $("#nome").val("");
+         $("#datanascimento").val('');
+         $("#endereco").val('');
+         $("div.selDiv select").val('');
+         $("div.selDiv1 select").val();
+
+         $("#tablePesquisa tbody tr").remove();
+    }
+
+     $("#alterar").click(function(){
+
+          if($("#cpfEdit").val() == ""){
+            alert("falta o cpf");
+            return false;
+        }
+
+        if($("#nomeEdit").val() == ""){
+            alert("falta o nome");
+            return false;
+        }
+
+        if($("#datanascimentoEdit").val() == ""){
+            alert("falta a data de nascimento");
+            return false;
+        }
+
+        if(!$('input[name=sexoEdit]:checked').val()){
+            alert("selecione o sexo");
+            return false;
+        }
+
+        if($("#enderecoEdit").val() == ""){
+            alert("falta o endereço");
+            return false;
+        }
+
+        if($("div.selDivEdit select").val() == ""){
+            alert("falta o Estado");
+            return false;
+        }
+
+        if($("div.selDiv1Edit select").val() == ""){
+            alert("falta a cidade");
+            return false;
+        }
+
+        $.ajax({
+         method: "PUT",
+         url: "/Cadastro/Update",
+         data: { 
+            id : $("#hdID").val(),
+            cpf: $("#cpfEdit").val(),
+            nome: $("#nomeEdit").val(), 
+            datanascimento: $("#datanascimentoEdit").val(),
+            sexo : $('input[name=sexoEdit]:checked').val(),
+            endereco : $("#enderecoEdit").val(),
+            estado: $("div.selDivEdit select").val(),
+            cidade: $("div.selDiv1Edit select").val() },
+         success: function(html) {
+
+            alert(html);
+
+            }
+        });
+    });
+
+    
+
+});
+</script>
